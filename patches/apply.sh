@@ -30,9 +30,6 @@ cd ../libhardware_legacy
 git apply -v ../../device/xiaomi/hermes/patches/hardware_libhardware_legacy/0001-patch-for-mtk.patch
 cd ../..
 echo Patches Applied Successfully!
-source build/envsetup.sh
-breakfast hermes
-make -j4 bacon
 
 
 
