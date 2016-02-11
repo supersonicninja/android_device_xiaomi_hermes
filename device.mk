@@ -28,15 +28,19 @@ libxlog
 PRODUCT_COPY_FILES += \
    $(LOCAL_KERNEL):prebuilt/kernel
 
-# Init
+# init
 PRODUCT_PACKAGES += \
     hermes
 
-# Gralloc
+# gralloc
 PRODUCT_PACKAGES += \
    libgralloc_extra
 
-# Hack to fix asec on emulated sdcard
+# immvibe
+PRODUCT_PACKAGES += \
+	immvibe
+
+# hack to fix asec on emulated sdcard
 PRODUCT_PACKAGES += \
     asec_helper
 
@@ -81,7 +85,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.charger:root/fstab.charger\
     $(LOCAL_PATH)/rootdir/fstab.mt6795:root/fstab.mt6795 \
     $(LOCAL_PATH)/rootdir/init.aee.rc:root/init.aee.rc \
-    $(LOCAL_PATH)/rootdir/init.cm.rc:root/init.cm.rc \
     $(LOCAL_PATH)/rootdir/init.modem.rc:root/init.modem.rc \
     $(LOCAL_PATH)/rootdir/init.mt6795.rc:root/init.mt6795.rc \
     $(LOCAL_PATH)/rootdir/init.mt6795.usb.rc:root/init.mt6795.usb.rc \
@@ -95,6 +98,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init:root/init \
     $(LOCAL_PATH)/rootdir/init.hermes.power.rc:root/init.hermes.power.rc \
     $(LOCAL_PATH)/rootdir/init.storage.rc:root/init.storage.rc \
+$(LOCAL_PATH)/rootdir/init.cm.rc:root/init.cm.rc \
 
 # Telecom
 PRODUCT_COPY_FILES += \
@@ -164,6 +168,7 @@ PRODUCT_PACKAGES += \
  PRODUCT_PACKAGES += \
     lib_driver_cmd_mt66xx \
     libwifi-hal-mt66xx \
+    wifi_hal \
     libwpa_client \
     hostapd \
     hostapd_cli \
@@ -201,8 +206,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
      camera.disable_zsl_mode=1 \
      ro.mount.fs=EXT4 \
      persist.service.acm.enable=0 \
-     persist.sys.usb.config=mtp,mass_storage,adb \
-     persist.sys.timezone=Europe/Moscow
+     persist.sys.usb.config=mtp,mass_storage \
+     persist.sys.timezone=Asia/Shanghai
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \

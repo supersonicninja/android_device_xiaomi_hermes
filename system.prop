@@ -38,7 +38,7 @@ ro.sys.usb.mtp.whql.enable=0
 # Power off opt in IPO
 sys.ipo.pwrdncap=2
 
-ro.sys.usb.storage.type=mtp,mass_storage,adb
+ro.sys.usb.storage.type=mtp,mass_storage
 
 # USB BICR function
 ro.sys.usb.bicr=yes
@@ -187,4 +187,5 @@ persist.power.useautobrightadj=true
 keyguard.no_require_sim=true
 persist.sys.isUsbOtgEnabled=true
 camera.disable_zsl_mode=1
+persist.debug.wfd.enable=1
 
