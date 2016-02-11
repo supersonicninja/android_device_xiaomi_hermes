@@ -1,4 +1,4 @@
-# CM12.1 Device tree for Redmi Note 2 (HERMES)
+# OmniROM Device tree for Redmi Note 2 (HERMES)
 
 ### Other resource:
   - Kernel source: Not released yet

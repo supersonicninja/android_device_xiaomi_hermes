@@ -17,7 +17,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 TARGET_OTA_ASSERT_DEVICE := hermes
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
+	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -26,7 +26,7 @@ PRODUCT_PACKAGES += \
 libxlog
 
 PRODUCT_COPY_FILES += \
-   $(LOCAL_KERNEL):prebuilt/kernel
+   $(LOCAL_KERNEL):kernel
 
 # Init
 PRODUCT_PACKAGES += \
