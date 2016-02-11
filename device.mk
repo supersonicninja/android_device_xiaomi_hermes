@@ -28,19 +28,19 @@ libxlog
 PRODUCT_COPY_FILES += \
    $(LOCAL_KERNEL):prebuilt/kernel
 
-# init
+# Init
 PRODUCT_PACKAGES += \
     hermes
 
-# gralloc
+# Gralloc
 PRODUCT_PACKAGES += \
    libgralloc_extra
 
-# immvibe
+# Immvibe
 PRODUCT_PACKAGES += \
 	immvibe
 
-# hack to fix asec on emulated sdcard
+# Hack to fix asec on emulated sdcard
 PRODUCT_PACKAGES += \
     asec_helper
 
@@ -75,7 +75,7 @@ PRODUCT_COPY_FILES += \
 
 #Light    
 #PRODUCT_PACKAGES += \
-      #lights.mt6795 
+     #lights.mt6795 
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -98,7 +98,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init:root/init \
     $(LOCAL_PATH)/rootdir/init.hermes.power.rc:root/init.hermes.power.rc \
     $(LOCAL_PATH)/rootdir/init.storage.rc:root/init.storage.rc \
-$(LOCAL_PATH)/rootdir/init.cm.rc:root/init.cm.rc \
+    $(LOCAL_PATH)/rootdir/init.cm.rc:root/init.cm.rc \
 
 # Telecom
 PRODUCT_COPY_FILES += \
@@ -147,7 +147,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
-# media	
+# Media	
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
@@ -181,7 +181,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
     $(LOCAL_PATH)/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
 
-# ifaddrs
+# Ifaddrs
 PRODUCT_PACKAGES += \
     libifaddrs
 
