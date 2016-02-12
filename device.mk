@@ -214,7 +214,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=MediaTekRIL \
     ro.telephony.ril.config=fakeiccid  \
     persist.call_recording.enabled=true \
-    persist.call_recording.src=1 
+    persist.call_recording.src=1 \
+    persist.debug.wfd.enable=1
 
 PRODUCT_PACKAGES += \
     librs_jni \
