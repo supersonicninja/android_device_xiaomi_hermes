@@ -85,49 +85,9 @@ diff -ur libhardware/include/hardware/gps.h libhardware_mtk/include/hardware/gps
      gps_nmea_callback nmea_cb;
      gps_set_capabilities set_capabilities_cb;
      gps_acquire_wakelock acquire_wakelock_cb;
-diff -ur libhardware/include/hardware/lights.h libhardware_mtk/include/hardware/lights.h
---- libhardware/include/hardware/lights.h	2016-01-22 15:47:44.063878000 -0800
-+++ libhardware_mtk/include/hardware/lights.h	2016-01-23 05:25:12.364466000 -0800
-@@ -112,6 +112,9 @@
-      *
-      * The high byte should be ignored.  Callers will set it to 0xff (which
-      * would correspond to 255 alpha).
-+     *
-+     * On CM12.1, the high byte value can be implemented to control the LEDs
-+     * Brightness from the Lights settings. The value goes from 0x01 to 0xFF.
-      */
-     unsigned int color;
- 
 diff -ur libhardware/modules/audio_remote_submix/audio_hw.cpp libhardware_mtk/modules/audio_remote_submix/audio_hw.cpp
 --- libhardware/modules/audio_remote_submix/audio_hw.cpp	2016-01-22 15:47:44.083878000 -0800
 +++ libhardware_mtk/modules/audio_remote_submix/audio_hw.cpp	2016-01-23 05:25:12.364466000 -0800
-@@ -158,11 +158,11 @@
-     // destroyed if both and input and output streams are destroyed.
-     struct submix_stream_out *output;
-     struct submix_stream_in *input;
--#if ENABLE_RESAMPLING
--    // Buffer used as temporary storage for resampled data prior to returning data to the output
-+#if (ENABLE_RESAMPLING || ENABLE_CHANNEL_CONVERSION)
-+    // Buffer used as temporary storage for audio data prior to returning data to the output
-     // stream.
--    int16_t resampler_buffer[DEFAULT_PIPE_SIZE_IN_FRAMES];
--#endif // ENABLE_RESAMPLING
-+    int16_t processor_buffer[DEFAULT_PIPE_SIZE_IN_FRAMES];
-+#endif
- } route_config_t;
- 
- struct submix_audio_device {
-@@ -472,8 +472,8 @@
-         rsxadev->routes[route_idx].rsxSource = 0;
-     }
-     memset(rsxadev->routes[route_idx].address, 0, AUDIO_DEVICE_MAX_ADDRESS_LEN);
--#ifdef ENABLE_RESAMPLING
--    memset(rsxadev->routes[route_idx].resampler_buffer, 0,
-+#if (ENABLE_RESAMPLING || ENABLE_CHANNEL_CONVERSION)
-+    memset(rsxadev->routes[route_idx].processor_buffer, 0,
-             sizeof(int16_t) * DEFAULT_PIPE_SIZE_IN_FRAMES);
- #endif
- }
 @@ -1089,13 +1089,14 @@
          }
  #endif // ENABLE_CHANNEL_CONVERSION
