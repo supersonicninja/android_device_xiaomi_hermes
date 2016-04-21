@@ -102,7 +102,7 @@ PRODUCT_COPY_FILES += \
 
 # Telecom
 PRODUCT_COPY_FILES += \
-    device/xiaomi/mt6795-common/configs/apns-conf.xml:system/etc/apns-conf.xml \
+    device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml \
     device/xiaomi/mt6795-common/configs/ecc_list.xml:system/etc/ecc_list.xml \
     device/xiaomi/mt6795-common/configs/spn-conf.xml:system/etc/spn-conf.xml 
 
