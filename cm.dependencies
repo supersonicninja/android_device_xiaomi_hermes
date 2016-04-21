@@ -1,7 +1,7 @@
 [
   {
     "remote":      "github",
-    "repository":  "jianminglok/android_device_xiaomi_mt6795-common",
+    "repository":  "supersonicninja/android_device_xiaomi_mt6795-common",
     "target_path": "device/xiaomi/mt6795-common"
   }
 ]
