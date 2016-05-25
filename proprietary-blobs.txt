@@ -267,6 +267,7 @@ lib/libcamera_client.so
 lib/libcamera_client_mtk.so
 lib/libcamera_metadata.so
 lib/libcameracustom.so
+lib/libcameraservice.so
 lib/libccci_util.so
 lib/libcurl.so
 lib/libcustom_jni.so
@@ -491,6 +492,7 @@ lib64/libcamera_client.so
 lib64/libcamera_client_mtk.so
 lib64/libcamera_metadata.so
 lib64/libcameracustom.so
+lib64/libcameraservice.so
 lib64/libccci_util.so
 lib64/libcurl.so
 lib64/libcustom_jni.so
