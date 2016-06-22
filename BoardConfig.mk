@@ -25,6 +25,3 @@ BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 TARGET_RECOVERY_FSTAB := device/xiaomi/hermes/rootdir/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
-
-#Use prebuilt chromium
-PRODUCT_PREBUILT_WEBVIEWCHROMIUM=yes
