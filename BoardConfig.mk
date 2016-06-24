@@ -359,5 +359,5 @@ BOARD_SEPOLICY_UNION += \
 	cmddumper.te \
 	tunman.te
 
-
-
+# Speed up the build
+USE_CCACHE :=true
