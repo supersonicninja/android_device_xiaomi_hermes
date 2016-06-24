@@ -7,7 +7,7 @@ $(call inherit-product, vendor/xiaomi/hermes/hermes-vendor-blobs.mk)
 
 LOCAL_PATH := device/xiaomi/hermes
 
-DEVICE_PACKAGE_OVERLAYS += device/xiaomi/mt6795-common/overlay
+DEVICE_PACKAGE_OVERLAYS += device/xiaomi/hermes/overlay
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal xhdpi xxhdpi
@@ -36,14 +36,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
    libgralloc_extra
 
-# Immvibe
-PRODUCT_PACKAGES += \
-	immvibe
-
-# Hack to fix asec on emulated sdcard
-PRODUCT_PACKAGES += \
-    asec_helper
-
 # Audio
 PRODUCT_PACKAGES += \
     audio_policy.default \
@@ -53,11 +45,20 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     tinymix \
     libtinyalsa
+
 PRODUCT_COPY_FILES += \
-    device/xiaomi/mt6795-common/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    device/xiaomi/mt6795-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    device/xiaomi/mt6795-common/configs/audio_device.xml:system/etc/audio_device.xml \
-    device/xiaomi/mt6795-common/configs/audio_policy.conf:system/etc/audio_policy.conf
+    device/xiaomi/hermes/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    device/xiaomi/hermes/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    device/xiaomi/hermes/configs/audio_device.xml:system/etc/audio_device.xml \
+    device/xiaomi/hermes/configs/audio_policy.conf:system/etc/audio_policy.conf
+
+# Clear Motions
+PRODUCT_COPY_FILES += \
+    device/xiaomi/hermes/configs/mtk_clear_motion.cfg:system/etc/mtk_clear_motion.cfg
+
+# Set default player to AwesomePlayer
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.media.use-awesome=true
     
 # Bluetooth                            
 PRODUCT_PACKAGES += \
@@ -65,17 +66,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libbt-vendor
 PRODUCT_COPY_FILES += \
-    device/xiaomi/mt6795-common/configs/bt_did.conf:system/etc/bluetooth/bt_did.conf
+    device/xiaomi/hermes/configs/bt_did.conf:system/etc/bluetooth/bt_did.conf
      
 # Keyboard layout
 PRODUCT_COPY_FILES += \
-     device/xiaomi/mt6795-common/configs/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl \
-     device/xiaomi/mt6795-common/configs/ACCDET.kl:system/usr/keylayout/ACCDET.kl\
-     device/xiaomi/mt6795-common/configs/AVRCP.kl:system/usr/keylayout/AVRCP.kl      
-
-#Light    
-#PRODUCT_PACKAGES += \
-     #lights.mt6795 
+     device/xiaomi/hermes/configs/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl \
+     device/xiaomi/hermes/configs/ACCDET.kl:system/usr/keylayout/ACCDET.kl\
+     device/xiaomi/hermes/configs/AVRCP.kl:system/usr/keylayout/AVRCP.kl      
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -84,7 +81,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/factory_init.rc:root/factory_init.rc \
     $(LOCAL_PATH)/rootdir/fstab.charger:root/fstab.charger\
     $(LOCAL_PATH)/rootdir/fstab.mt6795:root/fstab.mt6795 \
-    $(LOCAL_PATH)/rootdir/init.aee.rc:root/init.aee.rc \
     $(LOCAL_PATH)/rootdir/init.modem.rc:root/init.modem.rc \
     $(LOCAL_PATH)/rootdir/init.mt6795.rc:root/init.mt6795.rc \
     $(LOCAL_PATH)/rootdir/init.mt6795.usb.rc:root/init.mt6795.usb.rc \
@@ -96,37 +92,33 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/meta_init.project.rc:root/meta_init.project.rc \
     $(LOCAL_PATH)/rootdir/meta_init.rc:root/meta_init.rc \
     $(LOCAL_PATH)/rootdir/init:root/init \
-    $(LOCAL_PATH)/rootdir/init.hermes.power.rc:root/init.hermes.power.rc \
     $(LOCAL_PATH)/rootdir/init.storage.rc:root/init.storage.rc \
     $(LOCAL_PATH)/rootdir/init.cm.rc:root/init.cm.rc \
 
 # Telecom
 PRODUCT_COPY_FILES += \
-    device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml \
-    device/xiaomi/mt6795-common/configs/ecc_list.xml:system/etc/ecc_list.xml \
-    device/xiaomi/mt6795-common/configs/spn-conf.xml:system/etc/spn-conf.xml 
+    device/xiaomi/hermes/configs/apns-conf.xml:system/etc/apns-conf.xml \
+    device/xiaomi/hermes/configs/ecc_list.xml:system/etc/ecc_list.xml \
+    device/xiaomi/hermes/configs/spn-conf.xml:system/etc/spn-conf.xml 
 
 # Thermal
 PRODUCT_COPY_FILES += \
-     device/xiaomi/mt6795-common/configs/.ht120.mtc:system/etc/.tp/.ht120.mtc \
-     device/xiaomi/mt6795-common/configs/thermal.conf:system/etc/.tp/thermal.conf \
-     device/xiaomi/mt6795-common/configs/thermal.off.conf:system/etc/.tp/thermal.off.conf \
-     device/xiaomi/mt6795-common/configs/.thermal_policy_00:system/etc/.tp/.thermal_policy_00 \
-     device/xiaomi/mt6795-common/configs/.thermal_policy_01:system/etc/.tp/.thermal_policy_01 
-    
+     device/xiaomi/hermes/configs/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc \
+     device/xiaomi/hermes/configs/thermal/thermal.conf:system/etc/.tp/thermal.conf \
+     device/xiaomi/hermes/configs/thermal/thermal.off.conf:system/etc/.tp/thermal.off.conf \
+     device/xiaomi/hermes/configs/thermal/.thermal_policy_00:system/etc/.tp/.thermal_policy_00 \
+     device/xiaomi/hermes/configs/thermal/.thermal_policy_01:system/etc/.tp/.thermal_policy_01 
+
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-    device/xiaomi/mt6795-common/configs/android.hardware.consumerir.xml:system/etc/permissions/android.hardware.consumerir.xml \
-    device/xiaomi/mt6795-common/configs/android.hardware.microphone.xml:system/etc/permissions/android.hardware.microphone.xml \
+    device/xiaomi/hermes/configs/android.hardware.consumerir.xml:system/etc/permissions/android.hardware.consumerir.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
-    device/xiaomi/mt6795-common/configs/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
-    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
@@ -141,7 +133,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
-    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
@@ -154,15 +145,19 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
 PRODUCT_COPY_FILES += \
-	device/xiaomi/mt6795-common/configs/media_codecs.xml:system/etc/media_codecs.xml \
-	device/xiaomi/mt6795-common/configs/media_codecs.xml:system/etc/permissions/media_codecs.xml \
-	device/xiaomi/mt6795-common/configs/media_profiles.xml:system/etc/media_profiles.xml
+	device/xiaomi/hermes/configs/media_codecs.xml:system/etc/media_codecs.xml \
+	device/xiaomi/hermes/configs/media_codecs.xml:system/etc/permissions/media_codecs.xml \
+	device/xiaomi/hermes/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # Charger
 PRODUCT_PACKAGES += \
       charger_res_images
+
+# Live Display
+ PRODUCT_PACKAGES += \
+ 	libjni_livedisplay
 
 # Wifi
  PRODUCT_PACKAGES += \
@@ -177,9 +172,9 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
     
 PRODUCT_COPY_FILES += \
-    device/xiaomi/mt6795-common/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
-    device/xiaomi/mt6795-common/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    device/xiaomi/mt6795-common/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
+    device/xiaomi/hermes/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
+    device/xiaomi/hermes/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
+    device/xiaomi/hermes/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
 
 # Ifaddrs
 PRODUCT_PACKAGES += \
@@ -195,7 +190,7 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-     device/xiaomi/mt6795-common/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml \
+     device/xiaomi/hermes/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml \
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
      ro.adb.secure=0 \
@@ -207,14 +202,14 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
      ro.mount.fs=EXT4 \
      persist.service.acm.enable=0 \
      persist.sys.usb.config=mtp,mass_storage \
-     persist.sys.timezone=Asia/Shanghai
+     persist.sys.timezone=Europe/Moscow
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.telephony.ril_class=MediaTekRIL \
     ro.telephony.ril.config=fakeiccid  \
     persist.call_recording.enabled=true \
-    persist.call_recording.src=4 \
+    persist.call_recording.src=1 \
     persist.debug.wfd.enable=1
 
 PRODUCT_PACKAGES += \
@@ -225,25 +220,32 @@ PRODUCT_PACKAGES += \
     libnl_2 \
     libtinyxml
 
-# Filesystem management tools
+
+# limit dex2oat threads to improve thermals
+ PRODUCT_PROPERTY_OVERRIDES += \
+     dalvik.vm.boot-dex2oat-threads=4 \
+     dalvik.vm.dex2oat-threads=2 \
+     dalvik.vm.image-dex2oat-threads=4
+
+
+# FM Radio
 PRODUCT_PACKAGES += \
-    e2fsck \
-    fibmap.f2fs \
-    fsck.f2fs \
-    mkfs.f2fs \
-    make_ext4fs \
-    resize2fs \
-    setup_fs \
-    ext4_resize \
-    resize_ext4 \
-    superumount 
+     	FmRadio \
+     	libfmjni \
+	libfmmt6620 \
+        libfmmt6628 \
+        libfmmt6627 \
+        libfmmt6630 \
+        libfmcust 
+
+# Gello Browser
+PRODUCT_PACKAGES += \
+	Gello
+
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=8
 
 # Dalvik/HWUI
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
-# Write SD card fix
-PRODUCT_COPY_FILES += \
-    device/xiaomi/mt6795-common/configs/platform.xml:system/etc/permissions/platform.xml

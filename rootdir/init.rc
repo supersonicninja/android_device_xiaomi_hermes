@@ -11,7 +11,6 @@ import /init.${ro.zygote}.rc
 import /init.trace.rc
 # Include CM's extra init file
 import /init.cm.rc
-import /init.hermes.power.rc
 import /init.storage.rc
 import /init.modem.rc
 
@@ -38,7 +37,7 @@ on early-init
 on init
     sysclktz 0
 
-loglevel 6 ####
+loglevel 1 ####
     write /proc/bootprof "INIT: on init start" ####
 
     # Backward compatibility

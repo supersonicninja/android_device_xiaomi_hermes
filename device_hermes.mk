@@ -12,7 +12,7 @@ PRODUCT_RELEASE_NAME := xiaomi hermes
 EXTENDED_FONT_FOOTPRINT := true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.timezone=Asia/Shanghai
+    persist.sys.timezone=Europe/Moscow
 
 PRODUCT_DEVICE := hermes
 PRODUCT_NAME := full_hermes

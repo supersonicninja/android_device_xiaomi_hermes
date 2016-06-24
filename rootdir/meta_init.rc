@@ -8,7 +8,6 @@ import init.ssd.rc
 import init.no_ssd.rc
 import init.ssd_nomuser.rc
 import init.fon.rc
-import init.aee.rc
 
 
 on early-init
@@ -35,7 +34,7 @@ on early-init
 on init
 sysclktz 0
 
-loglevel 5
+loglevel 1
 
 # Backward compatibility
     symlink /system/etc /etc
