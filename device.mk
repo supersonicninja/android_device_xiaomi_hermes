@@ -97,7 +97,7 @@ PRODUCT_COPY_FILES += \
 
 # Telecom
 PRODUCT_COPY_FILES += \
-    device/xiaomi/hermes/configs/apns-conf.xml:system/etc/apns-conf.xml \
+    device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml \
     device/xiaomi/hermes/configs/ecc_list.xml:system/etc/ecc_list.xml \
     device/xiaomi/hermes/configs/spn-conf.xml:system/etc/spn-conf.xml 
 
