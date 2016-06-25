@@ -253,3 +253,6 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 PRODUCT_COPY_FILES += \
 	device/xiaomi/hermes/configs/platform.xml:system/etc/permissions/platform.xml
 
+#swap
+PRODUCT_COPY_FILES += \
+	device/xiaomi/hermes/init.d/17zramzswap:system/etc/init.d/17zramzswap
