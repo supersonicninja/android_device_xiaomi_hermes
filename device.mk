@@ -249,3 +249,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=8
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
+#sdcard
+PRODUCT_COPY_FILES += \
+	device/xiaomi/hermes/configs/platform.xml:system/etc/permissions/platform.xml
+
