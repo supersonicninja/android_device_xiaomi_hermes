@@ -1,3 +1,19 @@
+#
+# Copyright (C) 2016 The CyanogenMod Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # The gps config appropriate for this device
@@ -7,26 +23,37 @@ $(call inherit-product, vendor/xiaomi/hermes/hermes-vendor-blobs.mk)
 
 LOCAL_PATH := device/xiaomi/hermes
 
+# Overlays
 DEVICE_PACKAGE_OVERLAYS += device/xiaomi/hermes/overlay
 
-# Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal xhdpi xxhdpi
+# Screen density
+PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
+# Boot animation
+TARGET_SCREEN_HEIGHT      := 1920
+TARGET_SCREEN_WIDTH       := 1080
+
+# Dalvik/HWUI
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # Recovery allowed devices
 TARGET_OTA_ASSERT_DEVICE := hermes
 
+# Prebuilt kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := device/xiaomi/hermes/prebuilt/kernel
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
-PRODUCT_PACKAGES += \
-libxlog
-
 PRODUCT_COPY_FILES += \
    $(LOCAL_KERNEL):prebuilt/kernel
+
+# xlog
+PRODUCT_PACKAGES += \
+libxlog
 
 # Init
 PRODUCT_PACKAGES += \
@@ -238,21 +265,22 @@ PRODUCT_PACKAGES += \
         libfmmt6630 \
         libfmcust 
 
-# Gello Browser
-PRODUCT_PACKAGES += \
-	Gello
-
-
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=8
-
-# Dalvik/HWUI
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 #sdcard
 PRODUCT_COPY_FILES += \
 	device/xiaomi/hermes/configs/platform.xml:system/etc/permissions/platform.xml
 
-#swap
+# ANT
+PRODUCT_PACKAGES += \
+	libantradio \
+	antradio_app \
+	ANT_RAM_CODE_E1.BIN \
+	ANT_RAM_CODE_E2.BIN \
+	AntHalService \
+	com.dsi.ant.antradio_library
+
+# ANT Permissions
 PRODUCT_COPY_FILES += \
-	device/xiaomi/hermes/init.d/17zramzswap:system/etc/init.d/17zramzswap
+	external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml
+

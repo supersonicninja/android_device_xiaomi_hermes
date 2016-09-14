@@ -92,6 +92,20 @@
         <item>"bt-dun"</item>
     </string-array>
 
+    <!-- Whether WiFi display is supported by this device.
+         There are many prerequisites for this feature to work correctly.
+         Here are a few of them:
+         * The WiFi radio must support WiFi P2P.
+         * The WiFi radio must support concurrent connections to the WiFi display and
+           to an access point.
+         * The Audio Flinger audio_policy.conf file must specify a rule for the "r_submix"
+           remote submix module.  This module is used to record and stream system
+           audio output to the WiFi display encoder in the media server.
+         * The remote submix module "audio.r_submix.default" must be installed on the device.
+         * The device must be provisioned with HDCP keys (for protected content).
+    -->
+    <bool name="config_enableWifiDisplay">true</bool>
+
     <bool name="config_wifi_background_scan_support">true</bool>
 
          <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
@@ -345,4 +359,12 @@
     <integer name="config_lowMemoryKillerMinFreeKbytesAbsolute">-1</integer>
 
     <bool name="config_user_notification_of_restrictied_mobile_access">false</bool>
+
+    <!-- Doze mode -->
+    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <integer name="config_screenBrightnessDoze">2</integer>
+    <bool name="config_dozeAfterScreenOff">true</bool>
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
+    <bool name="config_intrusiveNotificationLed">true</bool>
+
 </resources>
