@@ -13,6 +13,8 @@ $ chmod a+x ~/bin/repo
 
 $ repo init -u git://github.com/CyanogenMod/android.git -b cm-12.1
 
+Put /local_manifests/ in the ./repo/local_manifests/
+
 Download this device tree and vendor tree.
 
 $ ./device/xiaomi/hermes/patches/apply.sh

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- replace -->
+<remove-project path="frameworks/av" name="CyanogenMod/android_frameworks_av" groups="pdk" />
+  <project path="frameworks/av" name="CyanogenMod/android_frameworks_av" groups="pdk" revision="05d3017480ba870bc80110391e6b705c3f5f7fab" />
+<remove-project path="system/core" name="CyanogenMod/android_system_core" groups="pdk" />
+  <project path="system/core" name="CyanogenMod/android_system_core" groups="pdk" revision="82f218bd198d6e2e809f7061c127d192e787c7f3" />
+
+</manifest>
