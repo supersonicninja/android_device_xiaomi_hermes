@@ -39,5 +39,6 @@ All modifications made by me(supersonicninja) are completely free.
   - The Linux Team
   - The MediaTek Corp.
   - The Xiaomi Corp.
+  - vova.vafin
   - xen0n
   - xiaomi-dev (ivan19871002)
