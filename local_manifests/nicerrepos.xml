@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- switch to mtk a53 optimized repo. thanks @AdrianoMartins @aurorarom -->
+  <remove-project path="bionic" name="CyanogenMod/android_bionic" groups="pdk" />
+  <project path="bionic" name="aurorarom/android_bionic" groups="pdk" remote="github" revision="cm-12.1_a53" />
+  <remove-project path="art" name="CyanogenMod/android_art" groups="pdk" />
+  <project path="art" name="aurorarom/android_art" groups="pdk" remote="github" revision="cm-12.1_a53" />
+</manifest>
