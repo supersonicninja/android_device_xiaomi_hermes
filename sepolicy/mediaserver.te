@@ -136,6 +136,7 @@ allow mediaserver LC898122AF_device:chr_file { read write ioctl open };
 allow mediaserver LC898212AF_device:chr_file { read write ioctl open };
 allow mediaserver BU6429AF_device:chr_file { read write ioctl open };
 allow mediaserver DW9718AF_device:chr_file { read write ioctl open };
+allow mediaserver DW9761BAF_device:chr_file { read write ioctl open };
 allow mediaserver BU64745GWZAF_device:chr_file { read write ioctl open };
 
 # Data : WK14.38

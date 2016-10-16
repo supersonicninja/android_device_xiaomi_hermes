@@ -34,6 +34,7 @@ allow factory LC898122AF_device:chr_file { read write ioctl open };
 allow factory LC898212AF_device:chr_file { read write ioctl open };
 allow factory BU6429AF_device:chr_file { read write ioctl open };
 allow factory DW9718AF_device:chr_file { read write ioctl open };
+allow factory DW9761BAF_device:chr_file { read write ioctl open };
 allow factory BU64745GWZAF_device:chr_file { read write ioctl open };
 allow factory MTK_SMI_device:chr_file { read ioctl open };
 allow factory accdet_device:chr_file { read ioctl open };

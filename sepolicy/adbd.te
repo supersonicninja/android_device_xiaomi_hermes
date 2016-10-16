@@ -3,12 +3,6 @@
 # ============
 
 
-#violate neverallow rule
-#allow adbd block_device:blk_file { read ioctl open };
-
-#violate neverallow rule
-#allow adbd labeledfs:filesystem remount;
-
 # Date : WK14.27
 # Operation : KK.AOSP SQC 
 # Purpose : MTK snapshot-related mechanism

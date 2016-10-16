@@ -4,10 +4,10 @@ LOCAL_PATH := device/xiaomi/hermes
 # Kernel
 TARGET_USES_64_BIT_BINDER := true
 TARGET_IS_64_BIT := true
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=enforcing
 BOARD_KERNEL_BASE := 0x40078000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --base 0x40078000 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x03f88000 --second_offset 0x00e88000 --tags_offset 0x0df88000 --board Bule
+BOARD_MKBOOTIMG_ARGS := --base 0x40078000 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x03f88000 --second_offset 0x00e88000 --tags_offset 0x0df88000 --board mt6795
 TARGET_PREBUILT_KERNEL := device/xiaomi/hermes/prebuilt/kernel
 BOARD_CUSTOM_BOOTIMG := true
 
@@ -306,18 +306,12 @@ BOARD_SEPOLICY_UNION += \
 	adbd.te \
 	bluetooth.te \
 	bootanim.te \
-	clatd.te \
 	drmserver.te \
 	dhcp.te \
 	dnsmasq.te \
-	gpsd.te \
-	hci_attach.te \
 	healthd.te \
 	hostapd.te \
-	inputflinger.te \
 	init.te \
-	init_shell.te \
-	isolated_app.te \
 	keystore.te \
 	kernel.te \
 	lmkd.te \
@@ -327,19 +321,14 @@ BOARD_SEPOLICY_UNION += \
 	nfc.te \
 	racoon.te \
 	radio.te \
-	rild.te \
 	runas.te \
 	sdcardd.te \
-	servicemanager.te \
-	shared_relro.te \
 	shell.te \
 	system_app.te \
 	system_server.te \
 	surfaceflinger.te \
-	tee.te \
 	ueventd.te \
 	uncrypt.te \
-	watchdogd.te \
 	wpa_supplicant.te \
 	wpa.te \
 	property.te \

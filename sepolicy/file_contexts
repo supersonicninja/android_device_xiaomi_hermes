@@ -77,6 +77,7 @@
 /dev/AK7345AF(/.*)? u:object_r:AK7345AF_device:s0
 /dev/DW9714A(/.*)? u:object_r:DW9714A_device:s0
 /dev/DW9718AF(/.*)? u:object_r:DW9718AF_device:s0
+/dev/DW9761BAF(/.*)? u:object_r:DW9761BAF_device:s0
 /dev/ebc(/.*)? u:object_r:ebc_device:s0
 /dev/ebr[0-9]+ u:object_r:ebr_device:s0
 /dev/eemcs.* u:object_r:eemcs_device:s0

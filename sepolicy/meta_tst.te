@@ -58,6 +58,7 @@ allow meta_tst LC898122AF_device:chr_file { read write ioctl open };
 allow meta_tst LC898212AF_device:chr_file { read write ioctl open };
 allow meta_tst BU6429AF_device:chr_file { read write ioctl open };
 allow meta_tst DW9718AF_device:chr_file { read write ioctl open };
+allow meta_tst DW9761BAF_device:chr_file { read write ioctl open };
 allow meta_tst BU64745GWZAF_device:chr_file { read write ioctl open };
 allow meta_tst als_ps_device:chr_file { read ioctl open };
 allow meta_tst camera_isp_device:chr_file { read write ioctl open };

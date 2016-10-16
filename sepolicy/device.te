@@ -27,6 +27,7 @@ type LC898212AF_device, dev_type;
 type BU6429AF_device, dev_type;
 type AD5820AF_device, dev_type;
 type DW9718AF_device, dev_type;
+type DW9761BAF_device, dev_type;
 type BU64745GWZAF_device, dev_type;
 type M4U_device_device, dev_type;
 type hwmsensor_device, dev_type;
