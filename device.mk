@@ -103,7 +103,6 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/enableswap.sh:root/enableswap.sh \
     $(LOCAL_PATH)/rootdir/factory_init.project.rc:root/factory_init.project.rc \
     $(LOCAL_PATH)/rootdir/factory_init.rc:root/factory_init.rc \
     $(LOCAL_PATH)/rootdir/fstab.charger:root/fstab.charger\
@@ -120,7 +119,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/meta_init.rc:root/meta_init.rc \
     $(LOCAL_PATH)/rootdir/init:root/init \
     $(LOCAL_PATH)/rootdir/init.storage.rc:root/init.storage.rc \
-    $(LOCAL_PATH)/rootdir/init.cm.rc:root/init.cm.rc \
+    $(LOCAL_PATH)/rootdir/init.cm.rc:root/init.cm.rc
 
 # Telecom
 PRODUCT_COPY_FILES += \
