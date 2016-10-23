@@ -218,3 +218,4 @@ unix_socket_connect(system_server, wod_sim, epdg_wod)
 # Purpose : for kill-switch should only grant to access frp partition, to be fix
 allow system_server platformblk_device:blk_file { ioctl getattr open write read };
 allow system_server platformblk_device:dir search;
+allow system_server unlabeled:file unlink;

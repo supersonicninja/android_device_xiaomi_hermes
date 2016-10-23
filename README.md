@@ -17,6 +17,8 @@ Put /local_manifests/ in your ./repo/local_manifests/
 
 Download this device tree and vendor tree.
 
+Overwrite /sepolicy/domainnew.te to /external/sepolicy/domain.te
+
 $ ./device/xiaomi/hermes/patches/apply.sh
 
 $ source build/envsetup.sh && lunch cm_hermes-userdebug && make bacon

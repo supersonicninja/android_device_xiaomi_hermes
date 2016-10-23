@@ -287,3 +287,7 @@ PRODUCT_COPY_FILES += \
 # 1MB Log file threshold
 AUDITD_MAX_LOG_FILE_SIZEKB := 1000
 PRODUCT_PACKAGES += auditd
+
+#init.d
+PRODUCT_COPY_FILES += \
+	device/xiaomi/hermes/init.d/40chown:system/etc/init.d/40chown

@@ -366,3 +366,4 @@ allow mediaserver offloadservice_device:chr_file { read write ioctl open };
 # Operation : SRS
 # Purpose : SRS
 allow mediaserver system_data_file:file { getattr open read ioctl lock append write };
+allow mediaserver mediaserver_tmpfs:file { read write execute };
