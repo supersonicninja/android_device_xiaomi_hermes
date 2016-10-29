@@ -36,11 +36,12 @@ All modifications made by me(supersonicninja) are completely free.
   - jianminglok
   - lbule
   - nofearnohappy
-  - Syl191 for the patches
-  - The CyanogenMod Team
+  - Syl191
+  - The CyanogenMod developers.
   - The Google Corp.
-  - The Linux Team
+  - The Linux developers.
   - The MediaTek Corp.
+  - The UBER toolchain developers.
   - The Xiaomi Corp.
   - vova.vafin
   - xen0n
