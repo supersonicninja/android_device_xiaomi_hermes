@@ -25,7 +25,7 @@ $ source build/envsetup.sh && lunch cm_hermes-userdebug && make bacon
 
 ### Other resource:
   - Kernel source: Not released yet
-  - Vendor blobs: https://github.com/jianminglok/android_vendor_xiaomi_hermes
+  - Vendor blobs: https://github.com/supersonicninja/android_vendor_xiaomi_hermes
 
 ### Licence
 All modifications made by me(supersonicninja) are completely free.
@@ -34,7 +34,6 @@ All modifications made by me(supersonicninja) are completely free.
   - AdrianoMartins (aurorarom)
   - danielpinto8zz6
   - jianminglok
-  - lbule
   - nofearnohappy
   - Syl191
   - The CyanogenMod developers.
