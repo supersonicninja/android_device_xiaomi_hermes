@@ -6,4 +6,13 @@
   <project path="bionic" name="aurorarom/android_bionic" groups="pdk" remote="github" revision="cm-12.1_a53" />
   <remove-project path="art" name="CyanogenMod/android_art" groups="pdk" />
   <project path="art" name="aurorarom/android_art" groups="pdk" remote="github" revision="cm-12.1_a53" />
+
+  <!-- switch to uber toolchain -->
+  <remote  name="uber"
+           fetch="https://bitbucket.org/UBERTC/"
+           revision="master" />
+  <remove-project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" groups="pdk,linux,arm" clone-depth="1" remote="aosp" />
+  <remove-project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="CyanogenMod/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9" groups="pdk,linux,arm" clone-depth="1" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" name="arm-linux-androideabi-4.8" groups="pdk,linux,arm" remote="uber" />
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="aarch64-linux-android-4.9" groups="pdk,linux,arm" remote="uber" />
 </manifest>
